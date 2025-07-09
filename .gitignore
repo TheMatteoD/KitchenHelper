@@ -6,7 +6,7 @@ obj/
 *.userosscache
 *.sln.docstates
 
-# VS user-specific and temp files
+# VS
 .vs/
 ProjectEvaluation/
 
