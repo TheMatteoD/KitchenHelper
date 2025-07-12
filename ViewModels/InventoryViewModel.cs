@@ -30,7 +30,7 @@ public class InventoryViewModel
 
     public async void AddIngredient()
     {
-        var ingredient = new Ingredient(NewName, NewUnit);
+        var ingredient = new Ingredient(NewName, NewQuantity, NewUnit);
 
         await _inventoryService.AddIngredientAsync(ingredient);
         LoadIngredients();

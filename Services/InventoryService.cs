@@ -14,9 +14,10 @@ class InventoryService : IInventoryService
         _context = context;
     }
 
-    public Task AddIngredientAsync(Ingredient ingredient)
+    public async Task AddIngredientAsync(Ingredient ingredient)
     {
-        throw new NotImplementedException();
+        await _context.Ingredients.AddAsync(ingredient);
+        await _context.SaveChangesAsync();
     }
 
     public Task DeleteIngredientAsync(Guid id)
