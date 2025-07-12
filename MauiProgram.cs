@@ -26,11 +26,19 @@ public static class MauiProgram
 
 		// Register services
 		builder.Services.AddScoped<IInventoryService, InventoryService>();
+        builder.Services.AddScoped<IRecipeService, RecipeService>();
 
 #if DEBUG
-		builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-		return builder.Build();
+		var app = builder.Build();
+		using var scope = app.Services.CreateScope();
+
+		// Ensure DB is created on startup
+		var db = scope.ServiceProvider.GetRequiredService<KitchenDbContext>();
+		db.Database.EnsureCreated();
+
+        return app;
 	}
 }
