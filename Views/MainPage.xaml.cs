@@ -6,9 +6,4 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
-
-    private async void OnGoToInventoryClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("InventoryPage");
-    }
 }

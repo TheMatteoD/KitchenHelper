@@ -14,13 +14,11 @@
 
             <Label
                 Text="An app for finding inspiring recipes with the ingredients you have today!"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+                Style="{StaticResource SubHeadline}" />
 
-            <Button Text="Go to Inventory"
-                Clicked="OnGoToInventoryClicked"
-                Padding="10" />
+            <Label
+                Text="Use the navigation tab across the top to explore the different features"
+                Style="{StaticResource SubHeadline}" />
         </VerticalStackLayout>
     </ScrollView>
 
