@@ -2,7 +2,7 @@
 
 namespace KitchenHelper.Services.Interfaces;
 
-interface IInventoryService
+public interface IInventoryService
 {
     Task<List<Ingredient>> GetAllIngredients();
     Task AddIngredientAsync(Ingredient ingredient);

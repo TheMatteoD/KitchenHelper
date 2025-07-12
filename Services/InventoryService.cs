@@ -1,10 +1,19 @@
-﻿using KitchenHelper.Models;
+﻿using KitchenHelper.Data;
+using KitchenHelper.Models;
 using KitchenHelper.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace KitchenHelper.Services;
 
 class InventoryService : IInventoryService
 {
+    private readonly KitchenDbContext _context;
+
+    public InventoryService(KitchenDbContext context)
+    {
+        _context = context;
+    }
+
     public Task AddIngredientAsync(Ingredient ingredient)
     {
         throw new NotImplementedException();
@@ -15,8 +24,8 @@ class InventoryService : IInventoryService
         throw new NotImplementedException();
     }
 
-    public Task<List<Ingredient>> GetAllIngredients()
+    public async Task<List<Ingredient>> GetAllIngredients()
     {
-        throw new NotImplementedException();
+        return await _context.Ingredients.ToListAsync();
     }
 }

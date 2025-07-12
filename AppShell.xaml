@@ -3,12 +3,16 @@
     x:Class="KitchenHelper.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:KitchenHelper"
+    xmlns:local="clr-namespace:KitchenHelper.Views"
     Title="KitchenHelper">
+
+    <TabBar>
+        <ShellContent Title="Inventory" Route="InventoryPage" ContentTemplate="{DataTemplate local:InventoryPage}" />
+    </TabBar>
+
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
 </Shell>

@@ -1,0 +1,25 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:KitchenHelper.ViewModels"
+             x:Class="KitchenHelper.Views.InventoryPage">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Entry Placeholder="Name" Text="{Binding NewName}" />
+        <Entry Placeholder="Quantity" Keyboard="Numeric" Text="{Binding NewQuantity}" />
+        <Entry Placeholder="Unit" Text="{Binding NewUnit}" />
+
+        <Button Text="Add" Clicked="OnAddClicked" />
+
+        <CollectionView ItemsSource="{Binding Ingredients}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Name}" />
+                        <Label Text="{Binding Quantity}" />
+                        <Label Text="{Binding Unit}" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

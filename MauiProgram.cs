@@ -1,6 +1,7 @@
 ﻿using KitchenHelper.Data;
 using KitchenHelper.Services;
 using KitchenHelper.Services.Interfaces;
+using KitchenHelper.Views;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -27,6 +28,8 @@ public static class MauiProgram
 		// Register services
 		builder.Services.AddScoped<IInventoryService, InventoryService>();
         builder.Services.AddScoped<IRecipeService, RecipeService>();
+
+        builder.Services.AddTransient<InventoryPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();
