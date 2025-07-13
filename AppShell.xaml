@@ -7,8 +7,18 @@
     Title="KitchenHelper">
 
     <TabBar>
-        <ShellContent Title="Home" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
-        <ShellContent Title="Inventory" Route="InventoryPage" ContentTemplate="{DataTemplate local:InventoryPage}" />
+        <ShellContent 
+            Title="Home" 
+            Route="MainPage" 
+            ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent 
+            Title="Inventory" 
+            Route="InventoryPage" 
+            ContentTemplate="{DataTemplate local:InventoryPage}" />
+        <ShellContent
+            Title="RecipeBook"
+            Route="RecipePage"
+            ContentTemplate="{DataTemplate local:RecipePage}" />
     </TabBar>
 
 

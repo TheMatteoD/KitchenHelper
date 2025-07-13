@@ -30,6 +30,7 @@ public static class MauiProgram
         builder.Services.AddScoped<IRecipeService, RecipeService>();
 
         builder.Services.AddTransient<InventoryPage>();
+		builder.Services.AddTransient<RecipePage>();
 
 #if DEBUG
         builder.Logging.AddDebug();

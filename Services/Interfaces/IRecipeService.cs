@@ -2,7 +2,7 @@
 
 namespace KitchenHelper.Services.Interfaces;
 
-interface IRecipeService
+public interface IRecipeService
 {
     Task<List<Recipe>> GetAllRecipes();
     Task AddRecipeAsync(Recipe recipe);

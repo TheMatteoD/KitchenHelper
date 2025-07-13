@@ -1,13 +1,21 @@
-﻿using KitchenHelper.Models;
+﻿using KitchenHelper.Data;
+using KitchenHelper.Models;
 using KitchenHelper.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace KitchenHelper.Services;
 
 class RecipeService : IRecipeService
 {
-    public Task AddRecipeAsync(Recipe recipe)
+    private readonly KitchenDbContext _context;
+    public RecipeService(KitchenDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
+    }
+    public async Task AddRecipeAsync(Recipe recipe)
+    {
+        await _context.Recipes.AddAsync(recipe);
+        await _context.SaveChangesAsync();
     }
 
     public Task DeleteRecipeAsync(Guid id)
@@ -15,8 +23,8 @@ class RecipeService : IRecipeService
         throw new NotImplementedException();
     }
 
-    public Task<List<Recipe>> GetAllRecipes()
+    public async Task<List<Recipe>> GetAllRecipes()
     {
-        throw new NotImplementedException();
+        return await _context.Recipes.ToListAsync();
     }
 }
