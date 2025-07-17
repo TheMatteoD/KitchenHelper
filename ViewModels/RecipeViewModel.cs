@@ -7,14 +7,26 @@ namespace KitchenHelper.ViewModels;
 internal class RecipeViewModel
 {
     private readonly IRecipeService _recipeService;
+    private readonly IInventoryService _inventoryService;
 
     public ObservableCollection<Recipe> Recipes { get; } = new();
+    public ObservableCollection<Ingredient> Ingredients { get; } = new();
 
     public string NewTitle { get; set; }
 
-    public RecipeViewModel(IRecipeService recipeService)
+    public RecipeViewModel(IRecipeService recipeService, IInventoryService inventoryService)
     {
         _recipeService = recipeService;
+        _inventoryService = inventoryService;
+
+        InitData();
+    }
+
+    public async void InitData()
+    {
+        var ingredients =  await _inventoryService.GetAllIngredients();
+        ingredients.ForEach(i => Ingredients.Add(i));
+
         LoadRecipes();
     }
 

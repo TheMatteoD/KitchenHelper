@@ -5,14 +5,23 @@
 
     <VerticalStackLayout Padding="20" Spacing="10">
         <Entry Placeholder="Name" Text="{Binding NewTitle}" />
+        
+        <CollectionView ItemsSource="{Binding Ingredients}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Name}" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <Button Text="Add" Clicked="OnAddClicked" />
+
 
         <CollectionView ItemsSource="{Binding Recipes}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout>
-                        <Label Text="{Binding Title}, Ingredients: {Binding Ingredients}" />
+                        <Label Text="{Binding Title}"/>
                     </VerticalStackLayout>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
